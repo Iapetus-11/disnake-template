@@ -1,10 +1,10 @@
 import os
+
 from disnake.ext import commands
 
-from util.errors import format_exception
-from util.code import execute_code
-
 from bot import SomeBot
+from util.code import execute_code
+from util.errors import format_exception
 
 
 class OwnerCommands(commands.Cog):

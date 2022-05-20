@@ -8,7 +8,7 @@ class BotConfig(BaseModel):
     DISCORD_BOT_TOKEN: str
 
     DATABASE_NAME: str = Field(default="bot.db")
-    
+
     COMMAND_PREFIX: str = Field(default="!")
 
 

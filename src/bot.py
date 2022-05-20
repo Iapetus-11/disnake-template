@@ -34,11 +34,13 @@ class SomeBot(commands.AutoShardedBot):
         ]
 
     async def start(self, *args, **kwargs) -> None:
-        async with aiohttp.ClientSession(raise_for_status=True) as self.http_client, aiosqlite.connect(self.config.DATABASE_NAME) as self.db:         
+        async with aiohttp.ClientSession(
+            raise_for_status=True
+        ) as self.http_client, aiosqlite.connect(self.config.DATABASE_NAME) as self.db:
             # load all the cogs
             for cog in self.cog_list:
                 self.load_extension(f"cogs.{cog}")
-            
+
             await super().start(*args, **kwargs)
 
     def run(self) -> None:

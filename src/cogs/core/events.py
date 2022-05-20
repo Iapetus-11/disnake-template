@@ -39,7 +39,9 @@ class Events(commands.Cog):
             await ctx.send(debug_info)
 
     @commands.Cog.listener()
-    async def on_slash_command_error(self, inter: disnake.ApplicationCommandInteraction, error: Exception):
+    async def on_slash_command_error(
+        self, inter: disnake.ApplicationCommandInteraction, error: Exception
+    ):
         if isinstance(error, commands.CommandOnCooldown):
             retry_after_in = (
                 arrow.now().shift(seconds=error.retry_after).humanize(only_distance=True)
